@@ -1,6 +1,30 @@
+import castillos.*
+describe "objetos"{
+	
+	var castillo1 = new Castillo()
+	const carlos = new Rey(castillo=castillo1)
+	var castillo2 = new Castillo()
+	const enrique = new Rey(castillo=castillo2)
 
-describe "castillos en guerra" {
-	test "2 + 2 = 4" {
-		assert.equals(4, 2 + 2)
-	}
+test "estabilidad de castillo"{
+	castillo1.agregarGuardias(10,10)
+	castillo1.agregarGuardias(30,7)
+	castillo1.agregarGuardias(20,5)
+	castillo1.agregarBurocrata("Roberto", 2001, 2)
+	castillo1.agregarBurocrata("Juan", 1977, 20)
+	castillo1.agregarBurocrata("Rocio", 1999, 3)
+	castillo2.agregarGuardias(20,7)
+	castillo2.agregarGuardias(20,5)
+	castillo2.agregarGuardias(25,8)
+	castillo2.agregarBurocrata("Gonzalo", 1999, 3)
+	castillo2.agregarBurocrata("Miguel", 1955, 35)
+	castillo2.agregarBurocrata("Ester", 1964, 30)
+	carlos.ordenarFiesta()
+	carlos.ordenarPrepararDefensas()
+	enrique.ordenarPrepararDefensas()
+	carlos.atacarCastillo(castillo2)
+	assert.equals(14, castillo1.estabilidad())
+
+}
+
 }
